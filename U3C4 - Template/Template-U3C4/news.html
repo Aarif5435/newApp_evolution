@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container{
+        /* height: 700px; */
+        display: flex;
+      }
+      #sidebar{
+         flex: 2;
+         border:1px solid black;
+
+      }
+      #main{
+        flex: 8;
+        border: 1px solid black;
+        display: flex;
+      }
+      img{
+        width: 40%;
+        height: 100%;
+      }
+     
+    </style>
+  </head>
+
+  <body>
+    <!--DO NOT CHANGE THIS ID's-->
+
+    <div id="container">
+      <div id="sidebar">
+        <!--add your sidebar component here-->
+      </div>
+
+      <div id="main">
+        <!--DO NOT CHANGE THIS ID's-->
+        <!--Show the clicked article in detailed format here ONLY-->
+        <img src="" id="img_main">
+        <div id="div_sec">
+          <h2></h2>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script type="module">
+
+  import sidebar from "./components/sidebar.js";
+
+  
+
+  let side = document.getElementById('sidebar');
+  side.innerHTML = sidebar();
+
+  let news = JSON.parse(localStorage.getItem("article"));
+
+  let main = document.getElementById('main');
+
+  let image = document.getElementById('img_main');
+  image.src = news.urlToImage;
+
+  let div2 = document.getElementById('div_sec');
+
+  let h2 = document.querySelector('h2');
+  h2.innerHTML = news.title;
+
+  let p = document.querySelector('p');
+  p.innerHTML = news.content;
+  
+  div2.append(h2,p);
+
+  main.append(image,div2)
+
+
+
+
+
+</script>
+

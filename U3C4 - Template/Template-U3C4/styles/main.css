@@ -1,0 +1,9 @@
+#main_div{
+    display: flex;
+    /* border: 1px solid red; */
+    margin-top: 20px;
+}
+img{
+    width: 30%;
+    height: 100%;
+}
